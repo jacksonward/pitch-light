@@ -109,16 +109,7 @@ function updatePitch(time) {
     }
 
     if (volumeCheck) {
-    /*
-    if (useSPP) {
-    fftData = new Float32Array(analyserNode.frequencyBinCount);
-    analyserNode.getFloatFrequencyData(fftData);
-    pitchInHz = HPS_pitchEstimation(fftData, audioContext.sampleRate, analyserNode.minDecibels, analyserNode.maxDecibels);
-    }
-    else if (useAC) pitchInHz = AC_pitchEstimation(inputBuffer, audioContext.sampleRate);
-    else if (useYin)
-    */
-        pitchInHz = Yin_pitchEstimation(inputBuffer, audioContext.sampleRate);
+        pitchInHz = Yin_pitchEstimation(inputBuffer, audioContext.sampleRate)
     }
     // Acceptable pitches range from 44 - 3500hz
     // Pitch smoothing logic
@@ -160,56 +151,7 @@ function updatePitch(time) {
     }
 }
 
-function generateNoteBarCanvas() {
-    var c = $('#bar')[0]
-    c.width = 2 * pixelsPerCent * 1200;
-    var h = c.height;
-    var halfH = Math.round(h / 2);
-    var ctx = c.getContext('2d');
-
-    // rules
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = '#CCCCCC';
-
-    ctx.beginPath();
-    for (var x = 0, n = 0; x < c.width; x += pixelsPerCent * 5, n++) {
-        var lh = 5;
-        if (n == 5) {
-            lh = 10;
-            n = 0;
-        }
-        ctx.moveTo(x, h - lh);
-        ctx.lineTo(x, h);
-    }
-    ctx.stroke();
-
-    // notes
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = 'rgba(204,204,204,1)';
-    //ctx.font = '18px Open Sans';
-    ctx.font = '18px Verdana';
-    ctx.fillStyle = 'rgba(204,204,204,1)';
-
-    for (var x = 0, s = 10, n = 0; x <= c.width; x += pixelsPerCent * 10, s++) {
-        ctx.beginPath();
-        if (s == 10) {
-            if (refNoteLabels[n].length == 1) ctx.fillText(refNoteLabels[n], x - 6, halfH - 10);
-            else ctx.fillText(refNoteLabels[n], x - 9, halfH - 10);
-            n++;
-            if (n == 12) n = 0;
-            s = 0;
-            ctx.arc(x, halfH, 4, 0, 2 * Math.PI, true);
-            ctx.stroke();
-        }
-        else {
-            ctx.arc(x, halfH, 1, 0, 2 * Math.PI, true);
-            ctx.stroke();
-        }
-    }
-}
-
 function updateGui(currentFreq, closestIndex, maxVolume) {
-
     if (closestIndex === false || currentFreq == 0) {
     }
     else {
