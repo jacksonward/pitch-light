@@ -1,17 +1,17 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible">
-    <title>visChord</title>
-    <script src="./yin.js"></script>
-    <script src="./hsl_to_rgb.js"></script>
-    <script src="./main.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body id="screen" style="transition:background-color .25s ease;">
-    <h3 id="frequency"></h3>
-    <h3 id="volume"></h3>
-    <h3 id="lastNote"></h3>
+<body id="screen">
+<div class="pitch"></div>
+<div class="freq"></div><canvas width="640" height="480"></canvas>
+
 </body>
+<script src="hsl_to_rgb.js"></script>
+<script src="yin.js"></script>
+<script src="index.js"></script>
 </html>

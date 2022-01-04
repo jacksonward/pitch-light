@@ -1,0 +1,30 @@
+body {
+  font-family: 'Helvetica Neue';
+  background: #73b8bf;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+.pitch {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  background-color: #c2edf2;
+  color: #73b8bf;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20;
+  font-weight: 200;
+  border-radius: 2px;
+}
+input[type=range] {
+  vertical-align: middle;
+  margin: 20px;
+  -webkit-appearance: none;
+  background-color: #c2edf2;
+  height: 3px;
+  width: 100px;
+  outline: none;
+}
