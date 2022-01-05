@@ -1,5 +1,5 @@
 let yinThreshold = 0.05 // allowed uncertainty (e.g 0.05 will return a pitch with ~95% probability)
-let yinProbability = 0.0 // READONLY: contains the certainty of the note found as a decimal (i.e 0.3 is 30%)
+let yinProbability = 0.0 // contains the certainty of the note found as a decimal (i.e 0.3 is 30%)
 
 function Yin_pitchEstimation(inputBuffer, sampleRate) {
 	let yinBuffer = new Float32Array(Math.floor(inputBuffer.length / 2))
